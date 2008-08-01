@@ -9,6 +9,7 @@
 
 (defun my-c-mode-common-hook ()
   (setq indent-tabs-mode nil)
+  (setq c-preprocessor-face-name 'cc-font-lock-preprocessor-face)
   (define-key c-mode-base-map "\C-m" 
     'reindent-then-newline-and-indent)
   (c-set-style "default")
@@ -49,7 +50,6 @@
     (c-add-style "default" my-c-style))
 
 (custom-set-variables
- '(c-preprocessor-face-name (quote cc-font-lock-preprocessor-face))
  '(c-tab-always-indent t)
  '(c-basic-offset 4)
  '(c-tab-width 4))
