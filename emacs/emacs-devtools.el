@@ -1,11 +1,5 @@
 ;; Miscellaneous development helpers
 
-;; CEDET configuration
-(require 'cedet)
-(defun enable-cedet ()
-  (semantic-load-enable-minimum-features)
-  (semantic-load-enable-code-helpers))
-
 ;; Hideshow
 (defun enable-hideshow ()
   (hs-minor-mode)

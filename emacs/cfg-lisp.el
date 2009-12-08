@@ -3,18 +3,18 @@
 (require 'emacs-devtools)
 
 ;; slime
+(add-to-list 'load-path (concat CFG-DIR "/slime"))
 (require 'slime)
 (add-hook 'inferior-lisp-mode-hook 
           #'(lambda () (inferior-slime-mode t)))
 (setenv "SBCL_HOME" "/usr/lib/sbcl")
 (custom-set-variables
-   '(inferior-lisp-program
-     "/usr/bin/sbcl --core /home/dk/emacs/sbcl.core-for-slime")
+   '(inferior-lisp-program "/usr/bin/sbcl")
    '(common-lisp-hyperspec-root "/home/dk/lib/lisp/hyperspec/")
    '(slime-startup-anomation nil)
    '(slime-net-coding-system 'utf-8-unix)
    '(slime-backend 
-     "/usr/share/common-lisp/source/slime/swank-loader.lisp"))
+     (concat CFG-DIR "/slime/swank-loader.lisp")))
 (slime-setup 
  '(slime-fancy slime-asdf slime-autodoc slime-references))
 (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)

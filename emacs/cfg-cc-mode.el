@@ -3,24 +3,26 @@
 (require 'emacs-devtools)
 
 (defface cc-font-lock-preprocessor-face  
-  '((t (:foreground "DarkGreen" :weight bold :underline t)))
+  '((t (:foreground "#00ab2e" :weight bold :underline nil)))
   "An alternative to font-lock-preprocessor face for cc-mode"
   :group 'cc-mode)
 
 (defun my-c-mode-common-hook ()
   (setq indent-tabs-mode nil)
   (setq c-preprocessor-face-name 'cc-font-lock-preprocessor-face)
-  (define-key c-mode-base-map "\C-m" 
-    'reindent-then-newline-and-indent)
+  (define-key c-mode-base-map "\C-m"
+    'newline-and-indent)
+;;    'reindent-then-newline-and-indent)
   (c-set-style "default")
-  (enable-cedet)
   (local-set-key "\M-s" 'semantic-complete-analyze-inline)
   (local-set-key (kbd "\C-c <return>") 'semantic-decoration-include-visit)
   (local-set-key (kbd "\C-c e") 'ecb-activate)
   (local-set-key (kbd "\C-c \C-e") 'ecb-deactivate)
-  (when window-system
-    (enable-hideshow))
-  (local-set-key (kbd "\C-x x") 'hs-toggle-hiding))
+  (local-set-key (kbd "\C-x x") 'hs-toggle-hiding)
+  (local-set-key (kbd "\C-z") 'semantic-ia-show-summary)
+  (local-set-key (kbd "\C-c p") 'semantic-analyze-proto-impl-toggle)
+  (local-set-key (kbd "\C-c , l") 'semantic-ia-fast-jump)
+  (enable-whitespace-mode))
 
 (setq c-doc-comment-style
       '((java-mode . javadoc)

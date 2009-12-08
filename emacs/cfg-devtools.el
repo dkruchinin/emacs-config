@@ -1,39 +1,5 @@
 ;; Miscellaneous development helpers initialization
 
-;; CEDET initialization
-(require 'cedet)
-(setq
- semantic-complete-inline-analyzer-displayor-class 
- 'semantic-displayor-tooltip)
-(setq-default semanticdb-default-save-directory "~/development/.semantic")
-(setq 
- semantic-complete-inline-analyzer-displayor-class
- 'semantic-displayor-traditional)
-
-;; ECB initialization
-(require 'ecb)
-(custom-set-variables
- '(ecb-auto-activate nil)
- '(ecb-directories-update-speedbar t)
- '(ecb-directories-face 'ecb-default-highlight-face)
- '(ecb-highlight-tag-with-delay nil)
- '(ecb-kill-buffer-clears-history 'auto)
- '(ecb-layout-name "left9")
- '(ecb-prescan-directories-for-emptyness nil)
- '(ecb-select-edit-window-on-redraw t)
- '(ecb-source-path '("~/development"))
- '(ecb-sources-sort-ignore-case nil)
- '(ecb-tip-of-the-day nil)
- '(ecb-windows-height 0.33)
- '(ecb-windows-width 0.19)
- '(ecb-options-version "2.33beta1"))
-
-(custom-set-faces
- '(ecb-default-highlight-face 
-   ((((class color) (background dark)) (:background "#463524"))))
- '(ecb-mode-line-prefix-face 
-   ((((class color) (background dark)) (:foreground "forestgreen")))))
-
 ;; Hideshow mode initialization
 (load-library "hideshow")
 (load-library "hideshowvis")
@@ -78,6 +44,14 @@
       (put-text-property 0 (length display-string) 
                          'face 'hs-face display-string)
       (overlay-put ov 'display display-string))))
+
+(defun enable-whitespace-mode ()  
+  (setq whitespace-style 
+        '(lines lines-tail space-after-tab space-before-tab trailing))
+  (custom-set-faces
+    '(whitespace-line ((t (:foreground "Orange" :background "DarkSlateGray"))))
+    '(whitespace-trailing ((t (:background "IndianRed")))))
+  (whitespace-mode))
 
 ;; Highlite parentheses. Quite useful 
 ;; minor mode for lisp-like languages
