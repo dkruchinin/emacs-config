@@ -16,54 +16,26 @@
  '(current-language-environment "UTF-8")
  '(default-indicate-empty-lines t t)
  '(default-input-method "cyrilic-jcuken")
- '(ecb-auto-activate nil)
- '(ecb-directories-face (quote ecb-default-highlight-face))
- '(ecb-directories-update-speedbar t)
- '(ecb-highlight-tag-with-delay nil)
- '(ecb-kill-buffer-clears-history (quote auto))
- '(ecb-layout-name "left9")
- '(ecb-options-version "2.40")
- '(ecb-prescan-directories-for-emptyness nil)
- '(ecb-select-edit-window-on-redraw t)
- '(ecb-source-path (quote ("~/development")))
- '(ecb-sources-sort-ignore-case nil)
- '(ecb-tip-of-the-day nil)
- '(ecb-windows-height 0.33)
- '(ecb-windows-width 0.19)
  '(font-lock-maximum-decorations t)
  '(global-font-lock-mode t)
 ;; '(global-semantic-tag-folding-mode t nil (semantic-util-modes))
  '(indent-tabs-mode nil)
- '(inferior-lisp-program "/usr/bin/sbcl")
  '(inhibit-startup-messages t)
  '(menu-bar-mode nil)
  '(next-line-add-newlines nil)
- '(quack-pltcollect-dirs "/home/dk/lib/plt-scheme")
- '(quack-pretty-lambda-p nil)
- '(quack-programs (quote ("mzscheme" "bigloo" "mit-scheme")))
- '(quack-remap-find-file-bindings-p nil)
- '(quack-run-scheme-always-prompts-p nil)
- '(quack-smallprint-face (quote default) t)
- '(quack-switch-to-scheme-method (quote cmuscheme))
  '(query-replace-highlight t)
  '(require-fonal-newline t)
  '(save-place t nil (saveplace))
- '(scheme-program-name "mzscheme")
  '(scroll-bar-mode nil)
  '(scroll-step 1)
  '(search-highlight t)
- '(semantic-ectag-program "ctags-exuberant")
- '(semantic-idle-scheduler-idle-time 3)
- '(semantic-self-insert-show-completion-function (lambda nil (semantic-ia-complete-symbol-menu (point))))
  '(show-paren-mode t)
- '(slime-backend (concat CFG-DIR "/slime/swank-loader.lisp"))
- '(slime-net-coding-system (quote utf-8-unix))
- '(slime-startup-anomation nil)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
  '(undabify t)
- '(winner-mode t nil (winner)))
+ '(winner-mode t nil (winner))
+ '(vertical-scroll-bar nil))
 
 ;; make all yes/no questions a bit shorter
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -77,11 +49,24 @@
           "cfg-cc-mode.el"
           "cfg-lisp.el"
           "cfg-scheme.el"
-          "cfg-tramp.el"))
+          "cfg-tramp.el"
+          "cfg-org-mode.el"
+          "cfg-anything.el"))
 
+;; SMEX
+(setq smex-save-file "~/.emacs.d/smex.save")
+
+(require 'smex)
+(add-hook 'after-init-hook 'smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; magit
 (add-to-list 'load-path (concat CFG-DIR "/magit"))
 (require 'magit)
 
 ;; show file size in modeline
 (size-indication-mode)
 (server-start)
+
+(put 'narrow-to-region 'disabled nil)

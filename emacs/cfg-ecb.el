@@ -5,22 +5,24 @@
 (custom-set-variables
  '(ecb-auto-activate nil)
  '(ecb-directories-update-speedbar t)
- '(ecb-directories-face 'ecb-default-highlight-face)
+ '(ecb-directories-face (quote ecb-default-highlight-face))
  '(ecb-highlight-tag-with-delay nil)
- '(ecb-kill-buffer-clears-history 'auto)
+ '(ecb-kill-buffer-clears-history (quote auto))
  '(ecb-layout-name "left9")
  '(ecb-prescan-directories-for-emptyness nil)
  '(ecb-select-edit-window-on-redraw t)
  '(ecb-source-path '("~/development"))
- '(ecb-sources-sort-ignore-case nil)
+ '(ecb-sources-sort-ignore-case t)
  '(ecb-tip-of-the-day nil)
  '(ecb-windows-height 0.33)
  '(ecb-windows-width 0.19)
- '(ecb-options-version "2.40"))
+ '(ecb-options-version "2.40")
+;; '(ecb-compile-window-height 10)
+ '(ecb-fix-window-size t))
 
 (custom-set-faces
  '(ecb-default-highlight-face 
    ((((class color) (background dark)) (:background "#463524"))))
  '(ecb-mode-line-prefix-face 
    ((((class color) (background dark)) (:foreground "forestgreen")))))
-
+   

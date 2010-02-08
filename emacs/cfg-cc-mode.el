@@ -1,18 +1,18 @@
 ;; CC-mode configuration
 
 (require 'emacs-devtools)
+(require 'xcscope)
 
-(defface cc-font-lock-preprocessor-face  
-  '((t (:foreground "#00ab2e" :weight bold :underline nil)))
-  "An alternative to font-lock-preprocessor face for cc-mode"
-  :group 'cc-mode)
+;;(defface cc-font-lock-preprocessor-face  
+;;  '((t (:foreground "#00ab2e" :weight bold :underline nil)))
+;;  "An alternative to font-lock-preprocessor face for cc-mode"
+;;  :group 'cc-mode)
 
 (defun my-c-mode-common-hook ()
   (setq indent-tabs-mode nil)
-  (setq c-preprocessor-face-name 'cc-font-lock-preprocessor-face)
+;;  (setq c-preprocessor-face-name 'cc-font-lock-preprocessor-face)
   (define-key c-mode-base-map "\C-m"
     'newline-and-indent)
-;;    'reindent-then-newline-and-indent)
   (c-set-style "default")
   (local-set-key "\M-s" 'semantic-complete-analyze-inline)
   (local-set-key (kbd "\C-c <return>") 'semantic-decoration-include-visit)
@@ -22,6 +22,8 @@
   (local-set-key (kbd "\C-z") 'semantic-ia-show-summary)
   (local-set-key (kbd "\C-c p") 'semantic-analyze-proto-impl-toggle)
   (local-set-key (kbd "\C-c , l") 'semantic-ia-fast-jump)
+  (local-set-key (kbd "\C-c g e") 'ecb-goto-window-methods)
+  (local-set-key (kbd "\C-c g c") 'ecb-goto-window-compilation)
   (enable-whitespace-mode))
 
 (setq c-doc-comment-style

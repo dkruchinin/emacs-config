@@ -2,7 +2,14 @@
 
 ;; Ido
 (require 'ido)
+(setq ido-enable-flex-matching t)
 (ido-mode)
+
+;; Uniquify
+(require 'uniquify)
+(setq
+ uniquify-buffer-name-style 'post-forward
+ uniquify-separator ":")
 
 ;; Highline
 (require 'highline)

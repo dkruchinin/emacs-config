@@ -25,49 +25,8 @@
  '(semantic-idle-scheduler-idle-time 3)
  '(semantic-self-insert-show-completion-function 
    (lambda nil (semantic-ia-complete-symbol-menu (point))))
-   '(global-semantic-tag-folding-mode t nil (semantic-util-modes)))
-
-;;(global-semantic-folding-mode 1)
+ '(global-semantic-tag-folding-mode t nil (semantic-util-modes))
+ '(semantic-ectag-program "ctags-exuberant"))
 
 ;; Projects
-
-(ede-cpp-root-project 
- "mstring"
- :name "Mstring microkernel"
- :file "/home/dk/work/altell/mstring/Makefile"
- :local-variables '((compile-command . "cd /home/dk/work/altell/mstring/; make")
-                    (clean-command   . "cd /home/dk/work/altell/mstring/; make clean")))
-
-(defun my-ede-get-local-var (fname var)
-  "fetch given variable var from :local-variables of project of file fname"
-  (let* ((current-dir (file-name-directory fname))
-         (prj (ede-current-project current-dir)))
-    (when prj
-      (let* ((ov (oref prj local-variables))
-            (lst (assoc var ov)))
-        (when lst
-          (cdr lst))))))
-
-(require 'compile)
-;;(setq compilation-disable-input nil)
-(setq compilation-scroll-output t)
-;;(setq mode-compile-always-save-buffer-p t)
-
-(defun ede-compile ()
-  "Saves all unsaved buffers, and runs 'compile'."
-  (interactive)
-  (save-some-buffers t)
-  (compile (or (my-ede-get-local-var (buffer-file-name (current-buffer)) 'compile-command)
-               compile-command)))
-
-(defun ede-clean ()
-  (interactive)
-  (save-some-buffers t)
-  (let ((clean-cmd (my-ede-get-local-var 
-                    (buffer-file-name (current-buffer)) 
-                    'clean-command)))
-    (when clean-cmd
-      (compile clean-cmd))))
-
-(global-set-key [f8] 'ede-compile)
-(global-set-key [f9] 'ede-clean)
+(load-file (concat CFG-DIR "/projects.el"))
