@@ -51,6 +51,7 @@
           "cfg-scheme.el"
           "cfg-tramp.el"
           "cfg-org-mode.el"
+	  "cfg-eproject.el"
           "cfg-anything.el"))
 
 ;; SMEX
