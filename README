@@ -1,3 +1,13 @@
+== Configs hierarchy ==
+dot.emacs -> ~/.emacs
+emacs/    -> ~/emacs
+
+emacs/ directory should contain
+1) all configuration files with "cfg-" prefix.
+2) cedet, ecb, eproject and slime directories
+3) directory called modules which should contain
+all *.el files listed below.
+
 == A list of modules I use ==
    CEDET
    ECB
