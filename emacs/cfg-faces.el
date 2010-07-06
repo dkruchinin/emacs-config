@@ -1,10 +1,12 @@
 ;; Standard faces
 
-(defconst DEFAULT-FONT "Monospace-8") ;;"DejaVu Sans Mono-7"
+(defconst DEFAULT-FONT "DejaVu Sans Mono-9")
 
 (when window-system
   (set-default-font DEFAULT-FONT))
 
+(if (display-graphic-p)
+  (set-fontset-font (frame-parameter nil 'font) 'han '("STHeiti" . "unicode-bmp")))
 ;;(set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'vertical-border nil :foreground "#111111")
 (custom-set-faces

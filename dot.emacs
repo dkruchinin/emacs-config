@@ -45,22 +45,14 @@
           "cfg-buffers.el"
           "cfg-devtools.el"
           "cfg-cedet.el"
-          "cfg-ecb.el"
+;;          "cfg-ecb.el"
           "cfg-cc-mode.el"
           "cfg-lisp.el"
           "cfg-scheme.el"
           "cfg-tramp.el"
           "cfg-org-mode.el"
-	  "cfg-eproject.el"
-          "cfg-anything.el"))
-
-;; SMEX
-(setq smex-save-file "~/.emacs.d/smex.save")
-
-(require 'smex)
-(add-hook 'after-init-hook 'smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+          "cfg-projects.el"
+          ))
 
 ;; magit
 (add-to-list 'load-path (concat CFG-DIR "/magit"))

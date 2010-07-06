@@ -20,11 +20,12 @@
     (info "(r6rs)")
     (Info-index word)))
 
+
 ;; customize quack faces
 (custom-set-faces
- '(quack-pltish-defn-face ((t (:foreground "#134c87" :weight bold))))
- '(quack-pltish-keyword-face ((t (:foreground "#821d1d" :weight bold))))
- '(quack-pltish-comment-face ((t (:foreground "#9d7e55" :slant italic))))
+ '(quack-pltish-defn-face ((t (:foreground "IndianRed3" :weight bold))))
+ '(quack-pltish-keyword-face ((t (:foreground "forest green" :weight bold))))
+ '(quack-pltish-comment-face ((t (:foreground "DarkSlateGray4" :slant italic))))
  '(quack-pltish-paren-face ((t (:foreground "#bd952a"))))
  '(quack-pltish-selfeval-face  ((t (:foreground "#417c3f")))))
 
