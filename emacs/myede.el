@@ -56,6 +56,11 @@
     (when proj
       (ede-project-buffers proj))))
 
+(defface ede-modeline-project-name-face  
+  '((t (:foreground "forestgreen" :weight bold :underline nil)))
+  "An alternative to font-lock-preprocessor face for cc-mode"
+  :group 'ede-minor-mode)
+
 ;; display project name in minibuffer
 (defun my/ede-modeline ()
   (let ((pname (my/ede-project-name)))
@@ -64,7 +69,7 @@
       (message "Project name %s" pname)
       (setq mode-line-buffer-identification
             (nconc (list (propertize
-                          pname 'face 'modeline-buffer-id) ":")
+                          pname 'face 'ede-modeline-project-name-face) ":")
                    (copy-list (default-value 'mode-line-buffer-identification)))))))
 
 (defun my/ede-get-compile-command ()
