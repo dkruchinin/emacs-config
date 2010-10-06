@@ -11,23 +11,19 @@
 (my-linux-project
  "cryptodev-2.6"
  :name "cryptodev-2.6"
- :file "~/work/cryptodev-2.6/Makefile"
- :local-variables '((c-basic-offset . 8)
-                    (c-tab-width . 8)
-                    (tab-width . 8)
-                    (c-indentation-style . "linux")
-                    (indent-tabs-mode . t)
+ :file "~/work/altell/cryptodev-2.6/Makefile"
+ :local-variables '((coding-style . "linux-kernel")
                     (compile-command . "make -j3 bzImage"))
  :arch "x86")
 
 (my-linux-project
  "linux-2.6"
  :name "linux-2.6"
- :file "~/work/linux/linux-2.6/Makefile"
+ :file "~/work/altell/linux/linux-2.6/Makefile"
  :local-variables '((c-basic-offset . 8)
                     (c-tab-width . 8)
                     (tab-width . 8)
-                    (c-indentation-style . "linux")
+                    (coding-style . "linux")
                     (indent-tabs-mode . t)
                     (compile-command . "make -j3 bzImage"))
  :arch "x86")

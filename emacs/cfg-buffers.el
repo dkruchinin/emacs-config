@@ -25,4 +25,13 @@
   (kill-buffer (current-buffer))
   (delete-window (selected-window)))
 
+(defun toggle-mode-line()
+  "Toggles modeline on and off"
+  (interactive)
+  (setq mode-line-format
+        (if (equal mode-line-format nil)
+            (default-value 'mode-line-format) nil))
+  (redraw-display))
+
 (global-set-key (kbd "\C-c 0") 'delete-window-with-buffer)
+(global-set-key [M-f12] 'toggle-mode-line)

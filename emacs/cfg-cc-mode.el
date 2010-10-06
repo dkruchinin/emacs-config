@@ -10,8 +10,11 @@
 ;;  :group 'cc-mode)
 
 (defun my-c-mode-common-hook ()
-  (setq indent-tabs-mode nil)
-;;  (setq c-preprocessor-face-name 'cc-font-lock-preprocessor-face)
+  (let ((coding-style (or
+                       (my/ede-get-local-var 'coding-style)
+                       c-indentation-style)))
+    (c-set-style coding-style))
+
   (define-key c-mode-base-map "\C-m"
     'newline-and-indent)
   (local-set-key (kbd "\C-c \C-s") 'semantic-complete-analyze-inline)
@@ -31,34 +34,12 @@
         (c-mode    . javadoc)
         (c++-mode  . javadoc)))
 
-(let ((my-c-style 
-        '((c-tab-always-indent        . t)
-          (c-tab-width                . 4)
-          (c-basic-offset             . 4)
-          (c-comment-only-line-offset . 0)
-          (c-hanging-braces-alist     . ((substatement-open after)
-                                         (brace-list-open)))
-          (c-hanging-colons-alist     . ((member-init-intro before)
-                                         (inher-intro)
-                                         (case-label after)
-                                         (label after)
-                                         (access-label after)))
-          (c-cleanup-list             . (scope-operator
-                                         empty-defun-braces
-                                         defun-close-semi))
-          (c-offsets-alist            . ((arglist-close . c-lineup-arglist)
-                                         (substatement-open . 0)
-                                         (case-label        . 4)
-                                         (block-open        . 0)
-                                         (knr-argdecl-intro . -)))
-          (c-echo-syntactic-information-p . t))))
-    (c-add-style "my" my-c-style))
-
 (setq c-default-style
       '((java-mode . "java")
         (awk-mode  . "awk")
         (c-mode    . "my")
         (other     . "gnu")))
 
+(load-file (concat CFG-DIR "/coding-styles.el"))
 (mapcar #'add-mark-kw-hl '(c-mode c++-mode java-mode))
 (add-hook 'c-mode-common-hook #'my-c-mode-common-hook)
