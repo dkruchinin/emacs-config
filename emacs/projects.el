@@ -8,6 +8,15 @@
  :local-variables '((c-indentation-style . "default")
                     (compile-command . "cd build; make -j3")))
 
+(my-cpp-root-project
+ "pppd-ldap"
+ :name "pppd-ldap"
+ :file "~/work/altell/neo/vpn-ldap/pppd-ldap/Makefile"
+ :local-variables '((coding-style . "bsd")
+                    (c-basic-offset . 4)
+                    (indent-tabs-mode . t)
+                    (compile-command . "make all DESTDIR=/usr DEBUG=y CHAPMS=y MPPE=y")))
+
 (my-linux-project
  "cryptodev-2.6"
  :name "cryptodev-2.6"
