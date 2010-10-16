@@ -10,11 +10,6 @@
 ;;  :group 'cc-mode)
 
 (defun my-c-mode-common-hook ()
-  (let ((coding-style (or
-                       (my/ede-get-local-var 'coding-style)
-                       c-indentation-style)))
-    (c-set-style coding-style))
-
   (define-key c-mode-base-map "\C-m"
     'newline-and-indent)
   (local-set-key (kbd "\C-c \C-s") 'semantic-complete-analyze-inline)
@@ -25,7 +20,17 @@
   (local-set-key (kbd "\C-c , l") 'semantic-ia-fast-jump)
   (local-set-key (kbd "\C-c g e") 'ecb-goto-window-methods)
   (local-set-key (kbd "<f8>") 'my/ede-compile)
-  (enable-whitespace-mode)
+  (let ((coding-style (or
+					   (my/ede-get-local-var 'coding-style)
+					   c-indentation-style)))
+    (c-set-style coding-style))
+
+  (let ((indentation (or
+                      (my/ede-get-local-var 'indentation)
+                      indentation)))
+    (when (equal indentation 'tabs)
+      (setq indent-tabs-mode t))
+    (enable-whitespace-mode (equal indentation 'tabs)))
   (company-mode))
 
 (setq c-doc-comment-style

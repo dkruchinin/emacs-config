@@ -33,7 +33,9 @@
  '(cursor ((t (:background "steelblue3"))))
  '(region ((t (:foreground "#0f2315" :background "#986241"))))
  '(completions-common-part ((t (:foreground "DarkGreen"))))
- '(completions-first-difference ((t (:foreground "DarkRed")))))
+ '(completions-first-difference ((t (:foreground "DarkRed"))))
+;; Whitespace mode faces
+ '(whitespace-trailing ((t (:background "IndianRed")))))
 
 ;; Highline faces
 (require 'highline)

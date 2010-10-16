@@ -19,16 +19,6 @@
 
 (add-hook 'compilation-mode-hook 'my/compilation-hook)
 
-;; Whitespace mode setttings
-
-(defun enable-whitespace-mode ()  
-  (setq whitespace-style 
-        '(lines lines-tail space-after-tab space-before-tab trailing))
-  (custom-set-faces
-    '(whitespace-line ((t (:foreground "Orange" :background "#773980"))))
-    '(whitespace-trailing ((t (:background "IndianRed")))))
-  (whitespace-mode))
-
 ;; Highlite parentheses. Quite useful 
 ;; minor mode for lisp-like languages
 (require 'highlight-parentheses)

@@ -14,7 +14,7 @@
  :file "~/work/altell/neo/vpn-ldap/pppd-ldap/Makefile"
  :local-variables '((coding-style . "bsd")
                     (c-basic-offset . 4)
-                    (indent-tabs-mode . t)
+                    (indentation    . tabs)
                     (compile-command . "make all DESTDIR=/usr DEBUG=y CHAPMS=y MPPE=y")))
 
 (my-linux-project
@@ -33,6 +33,6 @@
                     (c-tab-width . 8)
                     (tab-width . 8)
                     (coding-style . "linux")
-                    (indent-tabs-mode . t)
+                    (indentation  . tabs)
                     (compile-command . "make -j3 bzImage"))
  :arch "x86")
