@@ -24,4 +24,12 @@
               WHITESPACE-DEFAULT-STYLE))
   (whitespace-mode))
 
+
+;; Anythign and semantic settings
+(require 'anything)
+(defun anything-semantic ()
+  "`anything' for smeantic tags in current buffer"
+  (interactive)
+  (anything-other-buffer 'anything-c-source-semantic "*anything-semantic*"))
+
 (provide 'emacs-devtools)

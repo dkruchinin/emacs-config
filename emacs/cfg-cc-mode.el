@@ -1,7 +1,7 @@
 ;; CC-mode configuration
 
 (require 'emacs-devtools)
-;;(require 'xcscope)
+(require 'emacs-keys)
 (require 'myede)
 
 ;;(defface cc-font-lock-preprocessor-face  
@@ -12,14 +12,15 @@
 (defun my-c-mode-common-hook ()
   (define-key c-mode-base-map "\C-m"
     'newline-and-indent)
-  (local-set-key (kbd "\C-c \C-s") 'semantic-complete-analyze-inline)
-  (local-set-key (kbd "\C-c <return>") 'semantic-decoration-include-visit)
-  (local-set-key (kbd "\C-x x") 'hs-toggle-hiding)
-  (local-set-key (kbd "\C-z") 'semantic-ia-show-summary)
-  (local-set-key (kbd "\C-c p") 'semantic-analyze-proto-impl-toggle)
-  (local-set-key (kbd "\C-c , l") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "\C-c g e") 'ecb-goto-window-methods)
-  (local-set-key (kbd "<f8>") 'my/ede-compile)
+
+  (local-set-key EDK-JUMP2MODULE 'semantic-decoration-include-visit)
+  (local-set-key EDK-DESCRIBE-METHOD 'semantic-ia-show-summary)
+  (local-set-key EDK-SHOW-PROTOTYPE 'semantic-analyze-proto-impl-toggle)
+  (local-set-key EDK-COMPILE 'my/ede-compile)
+  (local-set-key EDK-COMPLETE 'company-complete)
+  (local-set-key EDK-NARROW-TO-METHOD 'senator-narrow-to-defun)
+  (local-set-key EDK-METHODS-SUMMARY 'anything-semantic)
+
   (let ((coding-style (or
 					   (my/ede-get-local-var 'coding-style)
 					   c-indentation-style)))

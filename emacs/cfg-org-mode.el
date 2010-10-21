@@ -16,7 +16,10 @@
  '(org-agenda-window-setup (quote other-window))
  '(org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyles.css\">")
  '(org-use-fast-todo-selection t)
- '(org-use-tag-inheritance nil))
+ '(org-use-tag-inheritance nil)
+ '(org-mobile-directory "/var/www/dav/org")
+ '(org-mobile-files '("gtd.org" "inbox.org" "goalsheet.org"))
+ '(org-mobile-inbox-for-pull "~/.org/mobile-inbox.org"))
 
 (setq org-agenda-files
       (mapcar #'(lambda (x) (concat "~/.org/" x))

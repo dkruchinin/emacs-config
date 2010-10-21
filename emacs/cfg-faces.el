@@ -1,6 +1,7 @@
 ;; Standard faces
 
-(defconst DEFAULT-FONT "DejaVu Sans Mono-9")
+;;(defconst DEFAULT-FONT "DejaVu Sans Mono-9")
+(defconst DEFAULT-FONT "Liberation Mono-10")
 
 (when window-system
   (set-default-font DEFAULT-FONT))
@@ -35,7 +36,15 @@
  '(completions-common-part ((t (:foreground "DarkGreen"))))
  '(completions-first-difference ((t (:foreground "DarkRed"))))
 ;; Whitespace mode faces
- '(whitespace-trailing ((t (:background "IndianRed")))))
+ '(whitespace-trailing ((t (:background "IndianRed"))))
+;;
+;; Company-mode faces
+;;
+ '(company-preview-common ((t (:foreground "green3"))))
+ '(company-tooltip ((t (:foreground "black" :background "LightSteelBlue1"))))
+ '(company-tooltip-common ((t (:foreground "DarkGreen" :background "LightSteelBlue1"))))
+ '(company-tooltip-selection ((t (:foreground "blue4" :background "LightSteelBlue1"))))
+ '(company-tooltip-common-selection ((t (:foreground "DarkRed" :background "LightSteelBlue1")))))
 
 ;; Highline faces
 (require 'highline)

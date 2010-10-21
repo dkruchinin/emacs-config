@@ -62,5 +62,4 @@
 ;; show file size in modeline
 (size-indication-mode)
 (server-start)
-
-(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
