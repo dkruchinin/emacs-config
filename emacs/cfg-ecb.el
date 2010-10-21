@@ -20,9 +20,9 @@
 ;; '(ecb-compile-window-height 10)
  '(ecb-fix-window-size t))
 
-(custom-set-faces
- '(ecb-default-highlight-face 
-   ((((class color) (background dark)) (:background "#463524"))))
- '(ecb-mode-line-prefix-face 
-   ((((class color) (background dark)) (:foreground "forestgreen")))))
+(defun ecb-toggle-windows/smart ()
+  "Toggle ECB windows and activate ECB if needed"
+  (interactive)
+  (if (ecb-minor-mode)
+      (ecb-toggle-ecb-windows) (ecb-activate)))
    

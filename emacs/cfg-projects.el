@@ -26,7 +26,6 @@
   (interactive)
   (anything-other-buffer 'anything-ede-project-buffers "*ede-project-buffers*"))
 
-(global-set-key (kbd "C-x m") 'anything-semantic)
 (global-set-key (kbd "C-x C-g") 'anything-project-files)
 (global-set-key (kbd "C-x C-b") 'anything-project-buffers)
 (global-set-key (kbd "<f7>") 'my/ede-compile)

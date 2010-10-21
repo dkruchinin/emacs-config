@@ -16,10 +16,16 @@
 (add-to-list 'load-path (concat CFG-DIR "/cm"))
 (autoload 'company-mode "company" nil t)
 
+(require 'anything-match-plugin)
 (defun anything-semantic ()
   "`anything' for smeantic tags in current buffer"
   (interactive)
   (anything-other-buffer 'anything-c-source-semantic "*anything-semantic*"))
+
+(defun anything-woman ()
+  "`anything' for WoMan pages"
+  (interactive)
+  (anything-other-buffer 'anything-c-source-man-pages "*anything-woman*"))
 
 ;; compile-mode settings
 (require 'compile)
@@ -44,3 +50,4 @@
 (global-set-key (kbd "\C-x SPC") 'bm-toggle)
 (global-set-key (kbd "<f2>") 'bm-next)
 (global-set-key (kbd "<C-f2>") 'bm-previous)
+(global-set-key (kbd "\C-x m") 'anything-woman)

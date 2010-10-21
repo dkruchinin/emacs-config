@@ -31,7 +31,9 @@
  '(transient-mark-mode t)
  '(undabify t)
  '(winner-mode t nil (winner))
- '(vertical-scroll-bar nil))
+ '(vertical-scroll-bar nil)
+ '(woman-fontify t)
+ '(hl-line-mode t))
 
 (setq-default indent-tabs-mode nil)
 
@@ -46,6 +48,7 @@
           "cfg-buffers.el"
           "cfg-devtools.el"
           "cfg-cedet.el"
+          "cfg-ecb.el"
           "cfg-cc-mode.el"
           "cfg-lisp.el"
           "cfg-scheme.el"

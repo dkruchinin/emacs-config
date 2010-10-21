@@ -8,5 +8,7 @@
 (defconst EDK-NARROW-TO-METHOD (kbd "\C-x n f"))
 (defconst EDK-COMPILE (kbd "<f8>"))
 (defconst EDK-METHODS-SUMMARY (kbd "\C-c e"))
+(defconst EDK-FUNCTION-DOC (kbd "\C-x d"))
+(defconst EDK-DOC-INDEX (kbd "\C-x t"))
 
 (provide 'emacs-keys)

@@ -57,7 +57,7 @@
       (ede-project-buffers proj))))
 
 (defface ede-modeline-project-name-face  
-  '((t (:foreground "forestgreen" :weight bold :underline nil)))
+  '((t (:foreground "#75d2a3" :bold t :underline nil :italic t)))
   "An alternative to font-lock-preprocessor face for cc-mode"
   :group 'ede-minor-mode)
 
@@ -68,8 +68,8 @@
       (make-local-variable 'mode-line-buffer-identification)
       (message "Project name %s" pname)
       (setq mode-line-buffer-identification
-            (nconc (list (propertize
-                          pname 'face 'ede-modeline-project-name-face) ":")
+            (nconc (list "[" (propertize
+                              pname 'face 'ede-modeline-project-name-face) "] ")
                    (copy-list (default-value 'mode-line-buffer-identification)))))))
 
 (defun my/ede-get-compile-command ()

@@ -19,7 +19,7 @@
   (local-set-key EDK-COMPILE 'my/ede-compile)
   (local-set-key EDK-COMPLETE 'company-complete)
   (local-set-key EDK-NARROW-TO-METHOD 'senator-narrow-to-defun)
-  (local-set-key EDK-METHODS-SUMMARY 'anything-semantic)
+  (local-set-key EDK-METHODS-SUMMARY 'ecb-toggle-windows/smart)
 
   (let ((coding-style (or
 					   (my/ede-get-local-var 'coding-style)
