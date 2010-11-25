@@ -23,6 +23,6 @@
 (defun ecb-toggle-windows/smart ()
   "Toggle ECB windows and activate ECB if needed"
   (interactive)
-  (if (ecb-minor-mode)
+  (if ecb-minor-mode
       (ecb-toggle-ecb-windows) (ecb-activate)))
    

@@ -26,16 +26,35 @@
           (kill-buffer perldoc-buf))
       (perldoc-tree))))
 
-(defun perl-completion-hook ()
+(require 'cperl-mode)
+(add-to-list 'cperl-style-alist
+             '("dk"
+               (cperl-auto-newline                         . nil) ;; disable annoying auto newlines
+               (cperl-indent-level                         . 4)
+               (cperl-brace-offset                         . 0)
+               (cperl-continued-brace-offset               . -4)
+               (cperl-label-offset                         . -4)
+               (cperl-continued-statement-offset           . 4)
+               (cperl-extra-newline-before-brace           . t)
+               (cperl-extra-newline-before-brace-multiline . t)
+               (cperl-merge-trailing-else)))
+
+(defun my-perl-hook ()
   (require 'perl-completion)
   (perl-completion-mode t)
 
   (local-set-key EDK-METHODS-SUMMARY 'perl-tree-toggle)
   (local-set-key EDK-COMPLETE 'plcmp-cmd-smart-complete)
   (local-set-key EDK-FUNCTION-DOC 'perldoc)
-  (local-set-key EDK-DOC-INDEX 'perldoc-tree-toggle))
+  (local-set-key EDK-DOC-INDEX 'perldoc-tree-toggle)
+  (local-set-key EDK-REPL 'inf-perl-start)
 
-(add-hook 'cperl-mode-hook 'perl-completion-hook)
+  (cperl-set-style "dk"))
+
+;; PDE's cperl-mode-hook sets "PDE" coding style as default one.
+;; The only way to avoid using "PDE" coding style every time cperl-mode
+;; is used is to APPEND my own hook that resets crappy PDE style to my nice one.
+(add-hook 'cperl-mode-hook 'my-perl-hook t)
 (add-hook 'perldoc-mode-hook '(lambda ()
                                 (local-set-key EDK-DOC-INDEX 'perldoc-tree-toggle)))
 

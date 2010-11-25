@@ -10,5 +10,6 @@
 (defconst EDK-METHODS-SUMMARY (kbd "\C-c e"))
 (defconst EDK-FUNCTION-DOC (kbd "\C-x d"))
 (defconst EDK-DOC-INDEX (kbd "\C-x t"))
+(defconst EDK-REPL (kbd "\C-c \C-r"))
 
 (provide 'emacs-keys)
