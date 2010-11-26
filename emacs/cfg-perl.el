@@ -34,8 +34,9 @@
                (cperl-brace-offset                         . 0)
                (cperl-continued-brace-offset               . -4)
                (cperl-label-offset                         . -4)
+               (cperl-min-label-indent                     . 0)
                (cperl-continued-statement-offset           . 4)
-               (cperl-extra-newline-before-brace           . t)
+               (cperl-extra-newline-before-brace           . nil)
                (cperl-extra-newline-before-brace-multiline . t)
                (cperl-merge-trailing-else)))
 
