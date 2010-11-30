@@ -20,13 +20,4 @@
     (info "(r6rs)")
     (Info-index word)))
 
-
-;; customize quack faces
-(custom-set-faces
- '(quack-pltish-defn-face ((t (:foreground "IndianRed3" :weight bold))))
- '(quack-pltish-keyword-face ((t (:foreground "forest green" :weight bold))))
- '(quack-pltish-comment-face ((t (:foreground "DarkSlateGray4" :slant italic))))
- '(quack-pltish-paren-face ((t (:foreground "#bd952a"))))
- '(quack-pltish-selfeval-face  ((t (:foreground "#417c3f")))))
-
 (add-hook 'scheme-mode-hook #'highlight-parentheses-mode)

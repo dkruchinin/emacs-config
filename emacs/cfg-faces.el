@@ -73,5 +73,14 @@
  '(ecb-default-highlight-face 
   ((((class color) (background dark)) (:background "#463524"))))
  '(ecb-mode-line-prefix-face 
-   ((((class color) (background dark)) (:foreground "forestgreen")))))
+   ((((class color) (background dark)) (:foreground "forestgreen"))))
+;;
+;; Quack faces
+;;
+ '(quack-pltish-defn-face ((t (:foreground "#7685de"))))
+ '(quack-pltish-keyword-face ((t (:bold t :foreground "#ae3535"))))
+ '(quack-pltish-comment-face ((t (:italic t :foreground "#bbbbbb"))))
+ '(quack-pltish-paren-face ((t (:foreground "forestgreen"))))
+ '(quack-pltish-selfeval-face  ((t (:foreground "#a54fb7"))))
+ )
 

@@ -42,5 +42,10 @@
 (define-key isearch-mode-map "\C-l" 'isearch-yank-line)
 (define-key isearch-mode-map "\C-k" 'isearch-yank-kill)
 (global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-z" 'undo)
 (global-set-key (kbd "\C-x w") 'ido-jump-to-window)
 (global-set-key (kbd "\C-c r") 'doremi-window-width+)
+
+;; UndoTree mode
+(require 'undo-tree)
+(global-undo-tree-mode)
