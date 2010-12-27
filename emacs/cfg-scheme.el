@@ -2,15 +2,16 @@
 
 (require 'quack)
 
-(autoload 'run-scheme "cmuscheme" "Run an inferior Scheme" t)
+(autoload 'run-scheme "ypsilon" "Run an inferior Scheme" t)
 (custom-set-variables 
- '(quack-pretty-lambda-p nil)
- '(quack-programs (quote ("mzscheme" "bigloo" "mit-scheme")))
+ '(quack-pretty-lambda-p t)
+ '(quack-programs (quote ("ypsilon" "mzscheme" "bigloo")))
  '(quack-remap-find-file-bindings-p nil)
  '(quack-run-scheme-always-prompts-p nil)
  '(quack-switch-to-scheme-method (quote cmuscheme))
  '(quack-smallprint-face (quote default))
- '(scheme-program-name "mzscheme"))
+ '(scheme-program-name "ypsilon")
+  '(quack-default-program "ypsilon"))
 (add-to-list 'auto-mode-alist '("\\.[scm\\|ss\\|scheme]$]" . scheme-mode))
 (add-mark-kw-hl 'scheme-mode)
 

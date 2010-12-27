@@ -56,11 +56,15 @@
           "cfg-tramp.el"
           "cfg-org-mode.el"
           "cfg-projects.el"
+          "cfg-latex.el"
           ))
 
 ;; magit
-(add-to-list 'load-path (concat CFG-DIR "/magit"))
 (require 'magit)
+
+;; run emacs edit server
+;;(require 'edit-server)
+;;(edit-server-start)
 
 ;; show file size in modeline
 (size-indication-mode)
