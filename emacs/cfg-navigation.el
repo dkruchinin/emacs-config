@@ -31,10 +31,6 @@
 
 (windmove-default-keybindings)
 
-(require 'doremi)
-(require 'doremi-frm)
-(require 'doremi-cmd)
-
 (define-key isearch-mode-map "\C-z" 'isearch-toggle-case-fold)
 (define-key isearch-mode-map "\C-e" 'isearch-toggle-regexp)
 (define-key isearch-mode-map "\C-c" 'isearch-yank-char)
@@ -45,7 +41,3 @@
 (global-set-key "\C-z" 'undo)
 (global-set-key (kbd "\C-x w") 'ido-jump-to-window)
 (global-set-key (kbd "\C-c r") 'doremi-window-width+)
-
-;; UndoTree mode
-(require 'undo-tree)
-(global-undo-tree-mode)

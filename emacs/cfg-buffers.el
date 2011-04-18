@@ -2,7 +2,19 @@
 
 ;; Ido
 (require 'ido)
-(setq ido-enable-flex-matching t)
+
+(custom-set-variables
+ '(ido-enable-flex-matching t)
+ '(ido-save-directory-list-file "~/.emacs.d/cache/ido.last")
+ '(ido-ignore-buffers 
+   '("\*"))
+ '(ido-case-fold t)
+ '(ido-enable-last-directory-history t)
+ '(ido-use-file-at-point nil)
+ '(ido-use-url-at-point nil)
+ '(ido-confirm-unique-completion t)
+ '(ido-everywhere nil))
+
 (ido-mode)
 
 ;; Uniquify
@@ -11,11 +23,47 @@
  uniquify-buffer-name-style 'post-forward
  uniquify-separator ":")
 
-;; Highline
-(require 'highline)
-(when window-system
-  (set-face-background 'highline-face "#15161b")
-  (highline-mode))
+;;buffer-ring and espect
+(require 'espect)
+(require 'buffer-ring)
+
+;; ibuffer
+(require 'ibuffer)
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("Org"
+                (mode . org-mode))
+               ("Programming"
+                (or
+                 (mode . c-mode)
+                 (mode . c++-mode)
+                 (mode . perl-mode)
+                 (mode . python-mode)
+                 (mode . emacs-lisp-mode)
+                 (mode . scheme-mode)
+                 (mode . lisp-mode)
+                 (name . "^\*compilation")))
+               ("Junk"
+                (name . "\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+          (lambda () 
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
+(defun select-buffer-from-ring-ido ()
+  "Select buffer from the current buffers ring
+   using ido-completing-read function."
+
+  (interactive)
+  (if (boundp 'buffer-ring)
+      (switch-to-buffer
+       (ido-completing-read
+        (concat "Ring [" 
+                (bfr-ring-name buffer-ring) 
+                "] buffers: ")
+        (dyn-ring-map (bfr-ring-ring buffer-ring)
+                      (lambda (name) name))))
+    (message "This buffer is not in a ring.")))
 
 ;; sometimes it may be useful to delete selected
 ;; window and kill buffer it shows with only one function
@@ -24,14 +72,6 @@
   (interactive)
   (kill-buffer (current-buffer))
   (delete-window (selected-window)))
-
-(defun toggle-mode-line()
-  "Toggles modeline on and off"
-  (interactive)
-  (setq mode-line-format
-        (if (equal mode-line-format nil)
-            (default-value 'mode-line-format) nil))
-  (redraw-display))
 
 (global-set-key (kbd "\C-c 0") 'delete-window-with-buffer)
 (global-set-key [M-f12] 'toggle-mode-line)

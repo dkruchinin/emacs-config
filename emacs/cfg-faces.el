@@ -1,32 +1,33 @@
 ;; Standard faces
+(add-to-list 'load-path (concat CFG-DIR "/color-themes"))
+(require 'color-theme)
+(require 'color-theme-dk)
 
-;;(defconst DEFAULT-FONT "DejaVu Sans Mono-9")
-(defconst DEFAULT-FONT "Liberation Mono-10")
+(when (display-graphic-p)
+  (set-fontset-font (frame-parameter nil 'font) 'han '("STHeiti" . "unicode-bmp"))
+  (set-default-font "DejaVu Sans Mono-10")
+  (set-face-font 'variable-pitch "Envy Code R-10"))
 
-(when window-system
-  (set-default-font DEFAULT-FONT))
+(color-theme-dk)
+(bar-cursor-mode)
 
-(if (display-graphic-p)
-  (set-fontset-font (frame-parameter nil 'font) 'han '("STHeiti" . "unicode-bmp")))
-;;(set-face-attribute 'mode-line nil :box nil)
-
-(set-face-attribute 'vertical-border nil :foreground "#111111")
-
+(defun temp ()
+;; (set-face-attribute 'vertical-border nil :foreground "#111111")
 (custom-set-faces
-;; A bit modified color theme originally created by djcb
+ ;; A bit modified color theme originally created by djcb
  '(default ((t (:foreground "#a9eadf" :background "black"))))
  '(font-lock-builtin-face ((t (:italic t :foreground "#a96da0"))))
  '(font-lock-comment-face ((t (:italic t :foreground "#bbbbbb"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "#666666"))))
- '(font-lock-constant-face ((t (:bold t :foreground "#a54fb7"))))
+ '(font-lock-constant-face ((t (:bold nil :underline t :foreground "#a54fb7"))))
  '(font-lock-doc-string-face ((t (:foreground "#3041c4"))))
  '(font-lock-doc-face ((t (:foreground "gray"))))
  '(font-lock-reference-face ((t (:foreground "white"))))
- '(font-lock-function-name-face ((t (:foreground "#7685de"))))
- '(font-lock-keyword-face ((t (:bold t :foreground "#ae3535"))))
+ '(font-lock-function-name-face ((nil (:foreground "#7685de"))))
+ '(font-lock-keyword-face ((t (:bold nil :foreground "#DC944F"))))
  '(font-lock-preprocessor-face ((t (:foreground "#e3ea94"))))
  '(font-lock-string-face ((t (:foreground "#ffffff"))))
- '(font-lock-type-face ((t (:bold t :foreground "#5fb765"))))
+ '(font-lock-type-face ((t (:bold nil :foreground "#45A47C"))))
  '(font-lock-variable-name-face ((t (:foreground "#4177a0"))))
  '(font-lock-warning-face ((t (:bold t :italic nil :underline nil 
                                      :foreground "yellow"))))
@@ -34,14 +35,15 @@
  '(mode-line ((t (:foreground "#ffffff" :background "#333333"))))
  '(region ((t (:foreground nil :background "#555555"))))
  '(cursor ((t (:background "steelblue3"))))
-;;
-;; Paren match and mismatch faces
-;; 
- '(show-paren-match ((t (:foreground "#e8990f" :bold t))))
+ '(variable-pitch ((t (:family "Envy Code R" :size 11))))
+ ;;
+ ;; Paren match and mismatch faces
+ ;; 
+ '(show-paren-match ((t (:foreground "#22BB00" :bold t))))
  '(show-paren-mismatch ((t (:background "darkred" :foreground "yellow" :bold t))))
-;;
-;; Minibuffer and ido-mode settings
-;;
+ ;;
+ ;; Minibuffer and ido-mode settings
+ ;;
  '(minibuffer-prompt ((t (:foreground "SteelBlue"))))
  '(ido-only-match ((t (:foreground "#38ae43"))))
  '(ido-first-match ((t (:foreground "#c1a075"))))
@@ -49,38 +51,47 @@
  
  '(completions-common-part ((t (:foreground "DarkGreen"))))
  '(completions-first-difference ((t (:foreground "DarkRed"))))
-;;
-;; Whitespace mode faces
-;;
+ ;;
+ ;; Whitespace mode faces
+ ;;
  '(whitespace-trailing ((t (:background "IndianRed"))))
-;;
-;; Company-mode faces
-;;
+ ;;
+ ;; Company-mode faces
+ ;;
  '(company-preview-common ((t (:foreground "green3"))))
  '(company-tooltip ((t (:foreground "black" :background "LightSteelBlue1"))))
  '(company-tooltip-common ((t (:foreground "DarkGreen" :background "LightSteelBlue1"))))
  '(company-tooltip-selection ((t (:foreground "blue4" :background "LightSteelBlue1"))))
  '(company-tooltip-common-selection ((t (:foreground "DarkRed" :background "LightSteelBlue1"))))
-;;
-;; WoMan faces
-;;
+ ;;
+ ;; WoMan faces
+ ;;
  '(woman-bold ((t (:foreground "IndianRed3" :weight normal))))
  '(woman-italic ((t (:foreground "green4" :slant italic))))
  '(woman-unknown ((t (:foreground "IndianRed3" :weight normal :background "#0b0b0b"))))
-;;
-;; ECB faces
-;;
+ ;;
+ ;; ECB faces
+ ;;
  '(ecb-default-highlight-face 
-  ((((class color) (background dark)) (:background "#463524"))))
+   ((((class color) (background dark)) (:background "#463524"))))
  '(ecb-mode-line-prefix-face 
    ((((class color) (background dark)) (:foreground "forestgreen"))))
-;;
-;; Quack faces
-;;
+ ;;
+ ;; Quack faces
+ ;;
  '(quack-pltish-defn-face ((t (:foreground "#7685de"))))
  '(quack-pltish-keyword-face ((t (:bold t :foreground "#ae3535"))))
  '(quack-pltish-comment-face ((t (:italic t :foreground "#bbbbbb"))))
  '(quack-pltish-paren-face ((t (:foreground "forestgreen"))))
  '(quack-pltish-selfeval-face  ((t (:foreground "#a54fb7"))))
- )
+ ;;
+ ;; Isearch faces
+ ;;
+ '(isearch ((t (:foreground "lightblue" :background "darkred" :weight bold))))
+ '(lazy-highlight ((t (:foreground "darkred" :background "lightblue" :weight bold))))
+ ;;
+ ;; Yasnippet faces
+ ;;
+ '(ac-yasnippet-candidates ((t (:foreground "blue"))))
+ ))
 
