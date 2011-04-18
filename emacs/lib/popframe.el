@@ -1,0 +1,27 @@
+(defvar popframe nil)
+(defvar popframe-alist '((name . "popframe")
+                         (title . "Emacs Popup frame")
+                         (vertical-scroll-bar . nil)
+                         (minibuffer . nil)
+                         (unsplittable . t)
+                         (menu-bar-lines . nil)
+                         (tool-bar-lines . nil)))
+
+(defun popframe/pop-up-function ()
+  (when (frame-live-p popframe) 
+    (delete-frame popframe))
+  (setq popframe (make-frame popframe-alist)))
+
+(defun popframe/special-display-function (buffer &optional buffer-data)
+  (let ((target-frame (popframe/pop-up-function)))
+    (select-frame target-frame)
+    (set-window-buffer (frame-selected-window target-frame) buffer)
+    (set-window-dedicated-p (frame-selected-window target-frame) t)
+    (frame-selected-window target-frame)))
+
+(defun popframe-kill ()
+  (interactive)
+  (when (frame-live-p popframe)
+    (delete-frame popframe)))
+
+(provide 'popframe)
