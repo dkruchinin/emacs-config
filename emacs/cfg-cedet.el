@@ -16,8 +16,6 @@
 
 (global-ede-mode 1)
 ;;(semantic-load-enable-all-exuberent-ctags-support)
-(setq-mode-local c-mode semanticdb-find-default-throttle
-                 '(local project unloaded system recursive))
-(setq-mode-local c++-mode semanticdb-find-default-throttle
-                 '(local project unloaded system recursive))
+(setq-mode-local c-mode semanticdb-find-default-throttle '(file))
+(setq-mode-local c++-mode semanticdb-find-default-throttle '(file))
 

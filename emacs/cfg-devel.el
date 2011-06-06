@@ -8,7 +8,8 @@
 ;; Yasnippet configuration
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory (concat PLUGINS-DIR "/yasnippet/snippets"))
+(yas/load-directory 
+ (devlib/concat-path PLUGINS-DIR "/yasnippet/snippets"))
 
 ;; Highlight TODO/FIXME/etc in comments and strings only
 (require 'fic-ext-mode)
@@ -18,8 +19,28 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
-(add-to-list 'ac-dictionary-directories (concat PLUGINS-DIR "/auto-complete/dict"))
+(add-to-list 'ac-dictionary-directories 
+             (devlib/concat-path PLUGINS-DIR "/auto-complete/dict"))
 (ac-config-default)
 
-(mapcar #'(lambda (file) (load-file (concat DEV-DIR "/" file)))
+;; smart tabs
+(require 'smarttabs)
+
+;; CEDET
+(load-file (devlib/concat-path CFG-DIR "/cedet/common/cedet.el"))
+(require 'cedet)
+(require 'ede)
+(require 'semantic)
+(require 'semanticdb)
+
+(semantic-load-enable-minimum-features)
+(semantic-load-enable-code-helpers)
+(global-semantic-idle-summary-mode nil)
+(semanticdb-enable-gnu-global-databases 'c-mode)
+(semanticdb-enable-gnu-global-databases 'c++-mode)
+(semanticdb-enable-gnu-global-databases 'java-mode)
+(setq-mode-local c-mode semanticdb-find-default-throttle '(file))
+(setq-mode-local c++-mode semanticdb-find-default-throttle '(file))
+
+(mapcar #'(lambda (file) (load-file (devlib/concat-path DEV-DIR file)))
         '("dev-cc.el"))

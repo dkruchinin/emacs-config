@@ -10,7 +10,7 @@
  '(window-min-height 1)
  '(special-display-function 'popframe/special-display-function)
  '(special-display-buffer-names
-   (quote ("*Help*" "*compilation*" "*grep*" "*xgtags*")))
+   (quote ("*Help*" "*compilation*" "*grep*" "*xgtags*" "*cscope*")))
  '(popwin:popup-window-height 14))
 
 
