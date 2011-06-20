@@ -27,7 +27,7 @@
 (require 'smarttabs)
 
 ;; CEDET
-(load-file (devlib/concat-path CFG-DIR "/cedet/common/cedet.el"))
+(load-file (devlib/concat-path PLUGINS-DIR "/cedet/common/cedet.el"))
 (require 'cedet)
 (require 'ede)
 (require 'semantic)
