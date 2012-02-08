@@ -1,7 +1,5 @@
 (require 'dired)
 (require 'yasnippet)
-(require 'auto-complete)
-(require 'auto-complete-config)
 (require 'fic-ext-mode)
 
 (defun devlib/filter (predicate seq)
@@ -16,10 +14,6 @@
   (let ((dir (file-name-as-directory root-dir)))
     (devlib/filter #'(lambda (file) (file-directory-p (concat dir file)))
                        (directory-files dir full match nosort))))
-
-(defun devlib/concat-path (directory file)
-  "Builds path from `directory' and `file'"
-  (concat (file-name-as-directory directory) file))
 
 (defun devlib/buffer-major-mode (buf-or-str)
   "Gets buffer's major mode"

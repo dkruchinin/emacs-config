@@ -1,12 +1,15 @@
-(defconst CFG-DIR "/home/dk/emacs")
+(defconst CFG-DIR "~/emacs")
 (defconst PLUGINS-DIR "~/.emacs.d/plugins")
-(add-to-list 'load-path "~/.emacs.d/plugins")
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
-(add-to-list 'load-path "~/.emacs.d/plugins/eproject")
-(add-to-list 'load-path (concat CFG-DIR "/lib"))
 
-(defconst CFG-DIR "/home/dk/emacs")
+(defun concat-path (directory file)
+  "Builds path from `directory' and `file'"
+  (concat (file-name-as-directory directory) file))
+
+(add-to-list 'load-path PLUGINS-DIR)
+(add-to-list 'load-path (concat-path PLUGINS-DIR "anything-config"))
+(add-to-list 'load-path (concat-path PLUGINS-DIR "yasnippet"))
+(add-to-list 'load-path (concat-path PLUGINS-DIR "color-theme"))
+(add-to-list 'load-path (concat-path CFG-DIR "lib"))
 (add-to-list 'load-path CFG-DIR)
 
 (custom-set-variables
@@ -41,32 +44,14 @@
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(next-line-add-newlines nil)
- '(org-agenda-files (quote ("~/.orgfiles/gtd.org")))
- '(org-agenda-show-all-dates t)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
- '(org-agenda-tags-todo-honor-ignore-options nil)
- '(org-agenda-todo-ignore-deadlines t)
- '(org-agenda-todo-ignore-scheduled t)
- '(org-agenda-todo-ignore-with-date t)
- '(org-agenda-window-setup (quote current-window))
- '(org-directory "~/.orgfiles")
- '(org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyles.css\">")
- '(org-log-done t)
- '(org-use-fast-todo-selection t)
- '(org-use-tag-inheritance t)
  '(popwin:popup-window-height 14)
  '(query-replace-highlight t)
  '(require-fonal-newline t)
- '(safe-local-variable-values (quote ((tpm/current-project (:name . "Solaris kernel")) (tpm/current-project (:name . "Pepsal") (:compile-command . "make")))))
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(scroll-step 1)
  '(search-highlight t)
  '(show-paren-mode t)
- '(special-display-buffer-names (quote ("*Help*" "*compilation*" "*grep*" "*xgtags*" "*cscope*")))
- '(special-display-function (quote popframe/special-display-function))
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
@@ -75,9 +60,11 @@
  '(window-min-height 1)
  '(window-min-width 1)
  '(winner-mode t nil (winner))
- '(woman-fontify t))
+ '(woman-fontify t)
+ '(aquamacs-autoface-mode nil))
 
 (setq-default indent-tabs-mode nil)
+(setq-default cursor-type 'bar)
 
 ;; FIXME: wtf?
 (make-local-variable 'indentation)
@@ -94,8 +81,7 @@
               "cfg-keybindings.el"
               "cfg-devel.el"
               "cfg-latex.el"
-              "cfg-tramp.el"
-              "cfg-org-mode.el"))
+              "cfg-tramp.el"))
 ;; (mapcar #'(lambda (file) (load-file (concat CFG-DIR "/" file)))
 ;;         '("cfg-navigation.el"
 ;;           "cfg-faces.el"
@@ -117,9 +103,4 @@
 ;; show file size in modeline
 (size-indication-mode)
 (server-start)
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+

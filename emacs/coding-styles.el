@@ -1,6 +1,6 @@
 (let ((my-c-style 
         '((c-tab-always-indent        . t)
-          (c-tab-width                . 4)
+          (c-tab-width                . 8)
           (c-basic-offset             . 4)
           (c-comment-only-line-offset . 0)
           (c-hanging-braces-alist     . ((substatement-open after)

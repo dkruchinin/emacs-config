@@ -102,6 +102,8 @@
        (ido-first-match ((t (:foreground ,green :bold t))))
        (ido-subdir ((t (:foreground ,yellow))))
        (ido-only-match ((t (:inherit completions-common-part))))
+       ;; which-func mode
+       (which-func ((t (:foreground ,blue))))
        ;;
        ;; Project name in modeline
        ;;

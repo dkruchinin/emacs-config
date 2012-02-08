@@ -23,10 +23,6 @@
  uniquify-buffer-name-style 'post-forward
  uniquify-separator ":")
 
-;;buffer-ring and espect
-(require 'espect)
-(require 'buffer-ring)
-
 ;; ibuffer
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
