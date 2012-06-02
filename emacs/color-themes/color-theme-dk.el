@@ -43,7 +43,7 @@
        (mode-line-inactive
         ((t (:foreground ,base0  :background ,base02
                          :box (:line-width 1 :color ,base02)))))
-       (region ((t (:background ,base01))))
+       (region ((t (:background "DarkSlateGray"))))
        (secondary-selection ((t (:background ,base02))))
        (trailing-whitespace ((t (:foreground ,red :inverse-video t))))
        (vertical-border ((t (:foreground ,base0))))
@@ -74,7 +74,7 @@
        (emacs-wiki-verbatim-face ((t (:foreground ,base00 :underline t))))
        ;; font-lock
        (font-lock-builtin-face ((t (:foreground ,green))))
-       (font-lock-comment-face ((t (:foreground ,base01 :italic t))))
+       (font-lock-comment-face ((t (:foreground "PaleTurquoise4" :italic t))))
        (font-lock-constant-face ((t (:foreground ,cyan))))
        (font-lock-function-name-face ((t (:foreground ,blue))))
        (font-lock-keyword-face ((t (:foreground ,green))))

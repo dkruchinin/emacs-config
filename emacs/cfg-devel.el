@@ -37,4 +37,4 @@
 (require 'anything-config)
 
 (mapcar #'(lambda (file) (load-file (concat-path DEV-DIR file)))
-        '("dev-cc.el"))
+        '("dev-cc.el" "dev-js.el"))

@@ -80,8 +80,7 @@
               "cfg-buffers.el"
               "cfg-keybindings.el"
               "cfg-devel.el"
-              "cfg-latex.el"
-              "cfg-tramp.el"))
+              "cfg-latex.el"))
 ;; (mapcar #'(lambda (file) (load-file (concat CFG-DIR "/" file)))
 ;;         '("cfg-navigation.el"
 ;;           "cfg-faces.el"
